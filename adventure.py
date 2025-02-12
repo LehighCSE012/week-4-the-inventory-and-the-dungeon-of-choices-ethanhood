@@ -71,7 +71,7 @@ def display_inventory(inventory):
     else:
         print("Your inventory:")
         for item in inventory:
-            print(str(i) + ". " + item)
+            print(str(i) + ". " + str(item))
             i=i+1
 def enter_dungeon(player_health, inventory, dungeon_rooms):
     for room in dungeon_rooms:
