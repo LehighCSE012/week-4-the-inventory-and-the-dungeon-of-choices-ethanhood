@@ -86,13 +86,14 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
                     result = random.choice([True, False])
                     if result==True:
                         print(room[3][0])
+                        player_health = player_health + int(room[3][2])
                     else:
                         print(room[3][1])
                         player_health = player_health + int(room[3][2])
                         display_player_status(player_health)
-                        if player_health <= 0:
-                            player_health=0
-                            print("You are barely alive!")
+                    if player_health <= 0:
+                        player_health=0
+                        print("You are barely alive!")
                 else:
                         print("Really? Okay fine, be boring...")
             case "trap":
@@ -103,11 +104,12 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
                     result = random.choice([True, False])
                     if result==True:
                         print(room[3][0])
+                        player_health = player_health + int(room[3][2])
                     else:
                         print(room[3][1])
                         player_health = player_health + int(room[3][2])
                         display_player_status(player_health)
-                        if player_health < 0:
+                    if player_health < 0:
                             player_health=0
                             print("You are barely alive!")
                 else:
