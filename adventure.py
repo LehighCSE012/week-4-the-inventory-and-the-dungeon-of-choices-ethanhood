@@ -101,7 +101,7 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
                 if choice=="Disarm":
                     # True is success and False is failure
                     result = random.choice([True, False])
-                    if result:
+                    if result==True:
                         print(room[3][0])
                     else:
                         print(room[3][1])
