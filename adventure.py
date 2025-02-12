@@ -82,7 +82,7 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
             case "puzzle":
                 print("You encounter a puzzle!")
                 choice = input("Would you like to Solve or Skip the puzzle?\n")
-                if choice=="Solve":
+                if choice=="solve":
                     result = random.choice([True, False])
                     if result==True:
                         print(room[3][0])
@@ -98,7 +98,7 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
             case "trap":
                 print("You see a potential trap!")
                 choice = input("Would you like to disarm or bypass the trap?\n")
-                if choice=="Disarm":
+                if choice=="disarm":
                     # True is success and False is failure
                     result = random.choice([True, False])
                     if result==True:
