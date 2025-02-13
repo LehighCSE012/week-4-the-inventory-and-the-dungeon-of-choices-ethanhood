@@ -114,7 +114,7 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
                         player_health=0
                         print("You are barely alive!")
                 else:
-                        print("Really? Okay fine, be boring...")
+                    print("Really? Okay fine, be boring...")
             case "none":
                 print("There doesn't seem to be a challenge in this room. You move on.")
         display_inventory(inventory)
@@ -128,19 +128,23 @@ def main():
     has_treasure = False
     inventory = []
     dungeon_rooms = [("A dusty old library", "key", "puzzle", ("You solved the puzzle!", "The puzzle remains unsolved.", -5)),
-    ("A narrow passage with a creaky floor", "None", "trap", ("You skillfully avoid the trap!", "You triggered a trap!", -10)),
-    ("A grand hall with a shimmering pool", "healing potion", "none", None),
-    ("A small room with a locked chest", "treasure", "puzzle", ("You cracked the code!", "The chest remains stubbornly locked.", -5))]
+                    ("A narrow passage with a creaky floor", "None", "trap", ("You skillfully avoid the trap!", "You triggered a trap!", -10)),
+                    ("A grand hall with a shimmering pool", "healing potion", "none", None),
+                    ("A small room with a locked chest", "treasure", "puzzle", ("You cracked the code!", "The chest remains stubbornly locked.", -5))]
 
     has_treasure = random.choice([True, False]) # Randomly assign treasure
 
     player_health = handle_path_choice(player_health)
 
-    treasure_obtained_in_combat, player_health = combat_encounter(player_health, monster_health, has_treasure)
+    treasure_obtained_in_combat, player_health = combat_encounter(player_health, 
+                                                                monster_health, 
+                                                                has_treasure)
 
     display_player_status(player_health)
 
-    player_health, inventory = enter_dungeon(player_health, inventory, dungeon_rooms)
+    player_health, inventory = enter_dungeon(player_health, 
+                                            inventory, 
+                                            dungeon_rooms)
 
     check_for_treasure(treasure_obtained_in_combat) # Or has_treasure, depending on logic
 
