@@ -1,17 +1,8 @@
-"""
-Week 4 code
-
-"""
-
 import random
-"""
-Method to display player health
-"""
+# Method to display player health
 def display_player_status(player_health):
     print("Your current health: " + str(player_health))
-"""
-Method to handle path choice
-"""
+
 def handle_path_choice(player_health):
     choice=random.choice(["left", "right"])
     if choice=="right":
@@ -26,17 +17,13 @@ def handle_path_choice(player_health):
             player_health=player_health+10
     updated_player_health = player_health
     return updated_player_health
-"""
-Method to deal with player attack
-"""
+
 def player_attack(monster_health):
     print("You strike the monster for 15 damage!")
     monster_health = monster_health-15
     updated_monster_health = monster_health
     return updated_monster_health
-"""
-Method to deal with monster attack
-"""
+
 def monster_attack(player_health):
     CRITICAL = random.random()
     if CRITICAL<=.5:
@@ -47,9 +34,7 @@ def monster_attack(player_health):
         print("The monster hits you for 10 damage!")
     updated_player_health = player_health
     return updated_player_health
-"""
-Method to account for combat encounter
-"""
+
 def combat_encounter(player_health, monster_health, has_treasure):
     # ... function code ...
     while 1:
@@ -68,24 +53,18 @@ def combat_encounter(player_health, monster_health, has_treasure):
 
 
     return treasure_found_and_won, player_health # boolean
-"""
-Method for treasure check
-"""
+
 def check_for_treasure(has_treasure):
     if has_treasure:
         print("You found the hidden treasure! You win!")
     else:
         print("The monster did not have the treasure. You continue your journey.")
-"""
-Acquire item method
-"""
+
 def acquire_item(inventory, item):
     inventory.append(item)
     print("You acquired a " + str(item) + "!")
     return inventory
-"""
-Displaying inventory
-"""
+
 def display_inventory(inventory):
     i = 1
     if not inventory:
@@ -95,9 +74,6 @@ def display_inventory(inventory):
         for item in inventory:
             print(str(i) + ". " + str(item))
             i=i+1
-"""
-The dungeon method
-"""
 def enter_dungeon(player_health, inventory, dungeon_rooms):
     for room in dungeon_rooms:
         print("Entering... " + room[0])
@@ -145,9 +121,7 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
 
     display_player_status(player_health)
     return player_health, inventory
-"""
-Main method
-"""
+
 def main():
     player_health = 100
     monster_health = 70 # Example hardcoded value
