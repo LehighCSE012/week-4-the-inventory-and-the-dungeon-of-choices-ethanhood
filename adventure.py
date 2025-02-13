@@ -53,10 +53,9 @@ def combat_encounter(player_health, monster_health, has_treasure):
             print("You defeated the monster!")
             treasure_found_and_won = has_treasure
             break
-        else:
-            monster_health = player_attack(monster_health)
-            display_player_status(player_health)
-            player_health = monster_attack(player_health)
+        monster_health = player_attack(monster_health)
+        display_player_status(player_health)
+        player_health = monster_attack(player_health)
 
 
     return treasure_found_and_won, player_health # boolean
@@ -87,8 +86,8 @@ def display_inventory(inventory):
             print(str(i) + ". " + str(item))
             i=i+1
 def enter_dungeon(player_health, inventory, dungeon_rooms):
-    # Using room for this for and in statement to parse through
-    # each room which is a tuple in the list
+    """Using room for this for and in statement to parse through
+    each room which is a tuple in the list"""
     for room in dungeon_rooms:
         print("Entering... " + room[0])
         if room[1] != "None":
@@ -108,7 +107,7 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
                 choice = input("Would you like to Solve or Skip the puzzle?\n")
                 if choice=="solve":
                     result = random.choice([True, False])
-                    if result==True:
+                    if result:
                         print(room[3][0])
                         player_health = player_health + int(room[3][2])
                     else:
@@ -126,7 +125,7 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
                 if choice=="disarm":
                     # True is success and False is failure
                     result = random.choice([True, False])
-                    if result==True:
+                    if result:
                         print(room[3][0])
                         player_health = player_health + int(room[3][2])
                     else:
