@@ -78,7 +78,7 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
     for room in dungeon_rooms:
         print("Entering... " + room[0])
         if room[1] != "None":
-            print("You found a " + str(room[1]) + "in the room.")
+            print("You found a " + str(room[1]) + " in the room.")
             inventory = acquire_item(inventory, room[1])
         match room[2]:
             case "puzzle":
