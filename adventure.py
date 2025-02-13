@@ -142,15 +142,15 @@ def main():
     player_health = handle_path_choice(player_health)
 
     treasure_obtained_in_combat, player_health = combat_encounter(
-        player_health, 
-        monster_health, 
+        player_health,
+        monster_health,
         has_treasure
     )
 
     display_player_status(player_health)
 
-    player_health, inventory = enter_dungeon(player_health, 
-                                            inventory, 
+    player_health, inventory = enter_dungeon(player_health,
+                                            inventory,
                                             dungeon_rooms)
 
     check_for_treasure(treasure_obtained_in_combat) # Or has_treasure, depending on logic
