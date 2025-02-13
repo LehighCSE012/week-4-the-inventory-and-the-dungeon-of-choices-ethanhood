@@ -31,8 +31,8 @@ def player_attack(monster_health):
 def monster_attack(player_health):
     """This method deals with the players health when a
     monster makes an attack"""
-    criticalL = random.random()
-    if criticalL<=.5:
+    critical = random.random()
+    if critical<=.5:
         player_health = player_health-20
         print("The monster lands a critical hit for 20 damage!")
     else:
@@ -49,7 +49,7 @@ def combat_encounter(player_health, monster_health, has_treasure):
             print("Game Over")
             treasure_found_and_won = False
             break
-        elif monster_health<=0:
+        if monster_health<=0:
             print("You defeated the monster!")
             treasure_found_and_won = has_treasure
             break
@@ -87,7 +87,7 @@ def display_inventory(inventory):
             print(str(i) + ". " + str(item))
             i=i+1
 def enter_dungeon(player_health, inventory, dungeon_rooms):
-    # Using room for this for and in statement to parse through 
+    # Using room for this for and in statement to parse through
     # each room which is a tuple in the list
     for room in dungeon_rooms:
         print("Entering... " + room[0])
