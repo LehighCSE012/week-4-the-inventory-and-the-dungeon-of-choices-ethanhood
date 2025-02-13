@@ -63,6 +63,7 @@ def check_for_treasure(has_treasure):
 def acquire_item(inventory, item):
     inventory.append(item)
     print("You acquired a " + str(item) + "!")
+    return inventory
 
 def display_inventory(inventory):
     i = 1
@@ -76,8 +77,8 @@ def display_inventory(inventory):
 def enter_dungeon(player_health, inventory, dungeon_rooms):
     for room in dungeon_rooms:
         print("Entering... " + room[0])
-        if(room[1] != "None"):
-            acquire_item(inventory, room[1])
+        if room[1] != "None":
+            inventory = acquire_item(inventory, room[1])
         match room[2]:
             case "puzzle":
                 print("You encounter a puzzle!")
@@ -95,7 +96,7 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
                         player_health=0
                         print("You are barely alive!")
                 else:
-                        print("Really? Okay fine, be boring...")
+                    print("Really? Okay fine, be boring...")
             case "trap":
                 print("You see a potential trap!")
                 choice = input("Would you like to disarm or bypass the trap?\n")
@@ -110,8 +111,8 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
                         player_health = player_health + int(room[3][2])
                         display_player_status(player_health)
                     if player_health < 0:
-                            player_health=0
-                            print("You are barely alive!")
+                        player_health=0
+                        print("You are barely alive!")
                 else:
                         print("Really? Okay fine, be boring...")
             case "none":
