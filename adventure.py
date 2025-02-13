@@ -62,7 +62,7 @@ def check_for_treasure(has_treasure):
 
 def acquire_item(inventory, item):
     inventory.append(item)
-    print("You accquired a " + str(item) + "!")
+    print("You acquired a " + str(item) + "!")
 
 def display_inventory(inventory):
     i = 1
