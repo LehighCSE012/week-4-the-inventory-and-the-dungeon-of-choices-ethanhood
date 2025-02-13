@@ -1,7 +1,6 @@
-'''Week 4 Assigment using lists and tuples'''
 import random
-'''Method to display player health'''
 def display_player_status(player_health):
+    """This method displays the player status"""
     print("Your current health: " + str(player_health))
 
 def handle_path_choice(player_health):
