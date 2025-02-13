@@ -1,3 +1,4 @@
+"""This is the week 4 coding assigment"""
 import random
 def display_player_status(player_health):
     """This method displays the player status"""
@@ -30,8 +31,8 @@ def player_attack(monster_health):
 def monster_attack(player_health):
     """This method deals with the players health when a
     monster makes an attack"""
-    CRITICAL = random.random()
-    if CRITICAL<=.5:
+    criticalL = random.random()
+    if criticalL<=.5:
         player_health = player_health-20
         print("The monster lands a critical hit for 20 damage!")
     else:
@@ -86,7 +87,8 @@ def display_inventory(inventory):
             print(str(i) + ". " + str(item))
             i=i+1
 def enter_dungeon(player_health, inventory, dungeon_rooms):
-    # Using room for this for and in statement to parse through each room which is a tuple in the list
+    # Using room for this for and in statement to parse through 
+    # each room which is a tuple in the list
     for room in dungeon_rooms:
         print("Entering... " + room[0])
         if room[1] != "None":
