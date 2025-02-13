@@ -1,5 +1,6 @@
+'''Week 4 Assigment using lists and tuples'''
 import random
-# Method to display player health
+'''Method to display player health'''
 def display_player_status(player_health):
     print("Your current health: " + str(player_health))
 
