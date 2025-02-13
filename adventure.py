@@ -81,7 +81,7 @@ def display_inventory(inventory):
         print("Your inventory is empty.")
     else:
         print("Your inventory:")
-        # Using 
+        # Using a for in statement to parse through the inventory
         for item in inventory:
             print(str(i) + ". " + str(item))
             i=i+1
@@ -114,9 +114,6 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
                         print(room[3][1])
                         player_health = player_health + int(room[3][2])
                         display_player_status(player_health)
-                    if player_health <= 0:
-                        player_health=0
-                        print("You are barely alive!")
                 else:
                     print("Really? Okay fine, be boring...")
             case "trap":
@@ -132,13 +129,13 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
                         print(room[3][1])
                         player_health = player_health + int(room[3][2])
                         display_player_status(player_health)
-                    if player_health < 0:
-                        player_health=0
-                        print("You are barely alive!")
                 else:
                     print("Really? Okay fine, be boring...")
             case "none":
                 print("There doesn't seem to be a challenge in this room. You move on.")
+        if player_health <= 0:
+            player_health=0
+            print("You are barely alive!")
         display_inventory(inventory)
 
     display_player_status(player_health)
