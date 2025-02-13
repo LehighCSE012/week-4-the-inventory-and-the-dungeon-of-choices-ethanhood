@@ -4,6 +4,7 @@ def display_player_status(player_health):
     print("Your current health: " + str(player_health))
 
 def handle_path_choice(player_health):
+    """This method handles the path choice"""
     choice=random.choice(["left", "right"])
     if choice=="right":
         print("You fall into a pit and lose 15 health points.")
@@ -19,12 +20,16 @@ def handle_path_choice(player_health):
     return updated_player_health
 
 def player_attack(monster_health):
+    """This method deals with the monsters health when a
+    player makes an attack"""
     print("You strike the monster for 15 damage!")
     monster_health = monster_health-15
     updated_monster_health = monster_health
     return updated_monster_health
 
 def monster_attack(player_health):
+    """This method deals with the players health when a
+    monster makes an attack"""
     CRITICAL = random.random()
     if CRITICAL<=.5:
         player_health = player_health-20
@@ -36,7 +41,8 @@ def monster_attack(player_health):
     return updated_player_health
 
 def combat_encounter(player_health, monster_health, has_treasure):
-    # ... function code ...
+    """This method deals with the combat
+    by calling the attack functions"""
     while 1:
         if player_health <=0:
             print("Game Over")
@@ -55,29 +61,43 @@ def combat_encounter(player_health, monster_health, has_treasure):
     return treasure_found_and_won, player_health # boolean
 
 def check_for_treasure(has_treasure):
+    """This method checks for treasure"""
     if has_treasure:
         print("You found the hidden treasure! You win!")
     else:
         print("The monster did not have the treasure. You continue your journey.")
 
 def acquire_item(inventory, item):
+    """This method adds item to inventory"""
+    # Using append to add to the end of the list the new item
     inventory.append(item)
     print("You acquired a " + str(item) + "!")
     return inventory
 
 def display_inventory(inventory):
+    """This method displays items in inventory"""
     i = 1
     if not inventory:
         print("Your inventory is empty.")
     else:
         print("Your inventory:")
+        # Using 
         for item in inventory:
             print(str(i) + ". " + str(item))
             i=i+1
 def enter_dungeon(player_health, inventory, dungeon_rooms):
+    # Using room for this for and in statement to parse through each room which is a tuple in the list
     for room in dungeon_rooms:
         print("Entering... " + room[0])
         if room[1] != "None":
+            #Using this to test tuple for first room
+            test=0
+            while test==0:
+                new_item = "lock"
+                #room[1] = new_item <- get an error if this code is uncommented
+                print("Could not change " + str(room[1]) + " to " + new_item + ".")
+                test = test+1
+            #End of test
             print("You found a " + str(room[1]) + " in the room.")
             inventory = acquire_item(inventory, room[1])
         match room[2]:
@@ -124,6 +144,7 @@ def enter_dungeon(player_health, inventory, dungeon_rooms):
     return player_health, inventory
 
 def main():
+    """Main function"""
     player_health = 100
     monster_health = 70 # Example hardcoded value
     has_treasure = False
